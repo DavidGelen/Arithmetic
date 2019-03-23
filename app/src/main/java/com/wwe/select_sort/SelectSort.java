@@ -1,17 +1,19 @@
-package com.wwe.selection_sort;
+package com.wwe.select_sort;
 
 /**
  * @name Arithmetic
- * @class name：com.wwe.selection_sort
+ * @class name：com.wwe.select_sort
  * @anthor David
- * @time 2019/3/21 21:28
+ * @time 2019/3/23 12:58
  * @class describe
  */
-public class Sort1 {
+public class SelectSort {
     public static void main(String[] args) {
         int[] arr = {5,3,6,8,1,7,9,4,2};
-        int max = getMaxValueFromArray(arr);
-        System.out.println("max = " + max);
+        // selectSortPositive(arr);
+        //selectSortReversed(arr);
+        //getMinValue(arr);
+        getMaxValueFromArray(arr);
     }
 
     private static int getMaxValueFromArray(int[] arr) {
@@ -19,7 +21,17 @@ public class Sort1 {
         for(int i = 0; i < arr.length -1; i++) {
             max = arr[i] > arr[max] ? i : max;
         }
-        return max;
+        System.out.println("max = " + arr[max]);
+        return arr[max];
+    }
+
+    private static int getMinValue(int[] arr) {
+        int minPos = 0;
+        for(int i = 0; i < arr.length -1; i++) {
+            minPos = arr[i] > arr[minPos] ? minPos : i;
+        }
+        System.out.println("min = " + arr[minPos]);
+        return arr[minPos];
     }
 
     private static void selectSortReversed(int[] arr) {
@@ -28,9 +40,7 @@ public class Sort1 {
             for(int j = i+1; j < arr.length; j++) {
                 maxPositon = arr[j] > arr[maxPositon] ? j : maxPositon;
             }
-            int temp = arr[i];
-            arr[i] = arr[maxPositon];
-            arr[maxPositon] = temp;
+            swapValue(arr,i,maxPositon);
         }
         traverse(arr);
     }
@@ -39,9 +49,7 @@ public class Sort1 {
         for(int i = 0; i < arr.length - 1; i++) {
             int minIndex = i;
             for(int j = i + 1; j < arr.length; j++) {
-                if(arr[j] < arr[i]) {
-                    minIndex = arr[j] < arr[minIndex] ? j : minIndex;
-                }
+                minIndex = arr[j] < arr[minIndex] ? j : minIndex;
             }
             swapValue(arr,i,minIndex);
         }
