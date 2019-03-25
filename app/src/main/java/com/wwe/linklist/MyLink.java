@@ -9,29 +9,33 @@ package com.wwe.linklist;
  * @class describe
  */
 public class MyLink {
-
     Node head;
 
     /**
      * @Author: David
      * @Date: 2019/3/25 11:39 AM
      * @param d
-     * @Description: 向链表中插入数据
+     * @Description: 向链表中插入数据,往头结点插入数据
      */
     public void addNode(int d) {
         Node newNode = new Node(d);
-        if(head == null) {
+        if (head == null) {
             head = newNode;
             return;
         }
-
-        Node tmp = head;
-        while (tmp.next != null) {
-            tmp = tmp.next;
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
         }
-        tmp.next = newNode;
+        temp.next = newNode;
     }
 
+    /**
+     * @Author: David
+     * @Date: 2019/3/25 2:54 PM
+     * @param index
+     * @Description:
+     */
     public boolean deleteNode(int index) {
         if (index < 1 || index > length()) {
             return false;
@@ -57,10 +61,10 @@ public class MyLink {
 
     public int length() {
         int length = 0;
-        Node tmp = head;
-        while (tmp != null) {
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
             length++;
-            tmp = tmp.next;
         }
         return length;
     }
@@ -71,22 +75,21 @@ public class MyLink {
      * @return
      */
     public boolean deleteNode(Node n) {
-        if (n == null || n.next == null) {
+        if(n == null || n.next == null) {
             return false;
         }
-        int tmp = n.data;
+        int temp = n.data;
         n.data = n.next.data;
-        n.next.data = tmp;
+        n.next.data = temp;
         n.next = n.next.next;
-        System.out.println("删除成功！");
         return true;
     }
 
     public void printList() {
-        Node tmp = head;
-        while (tmp != null) {
-            System.out.println(tmp.data);
-            tmp = tmp.next;
+        Node temp = head;
+        while (temp != null) {
+            System.out.println(temp.data);
+            temp = temp.next;
         }
     }
 }
