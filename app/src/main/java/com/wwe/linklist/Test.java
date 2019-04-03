@@ -17,11 +17,15 @@ public class Test {
         list.addNode(2);
         list.addNode(55);
         list.addNode(36);
-        System.out.println("linkLength:" + list.length());
-        System.out.println("head.data:" + list.head.data);
-        list.printList();
-        list.deleteNode(4);
-        System.out.println("After deleteNode(4):");
+        //System.out.println("linkLength:" + list.length());
+        //System.out.println("head.data:" + list.head.data);
+        //list.printList();
+        //list.deleteNode(4);
+        //System.out.println("After deleteNode(4):");
+        //list.printList();
+
+        list.ReverseIteratively(new Node(5));
         list.printList();
     }
 }
+
