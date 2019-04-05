@@ -45,7 +45,7 @@ public class SelectSort {
         traverse(arr);
     }
 
-    private static void selectSortPositive(int[] arr) {
+    public static void selectSortPositive(int[] arr) {
         for(int i = 0; i < arr.length - 1; i++) {
             int minIndex = i;
             for(int j = i + 1; j < arr.length; j++) {
