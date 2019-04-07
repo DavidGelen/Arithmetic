@@ -14,6 +14,8 @@ public class ShellSort {
         int[] arr = {9,6,11,3,5,12,8,7,10,15,14,4,1,13,2};
 
         //5,10，1，第一次gap=4，取出间隔数
+        //其实如果数组很长，用4作间隔也不合适，移动次数会很多
+        //效率最高的间隔序列算法是怎么样的呢？
         shellSort(arr);
 
         //写完之后用datacheck对一下,验证算法的正确性
@@ -21,6 +23,18 @@ public class ShellSort {
     }
 
     public static void shellSort(int[] arr) {
+        for(int gap = arr.length >> 1; gap > 0; gap /= 2) {
+            for(int i = gap; i < arr.length; i++) {
+                for(int j = i; j > gap - 1; j -= gap) {
+                    if(arr[j] < arr[j - gap]) {
+                        swap(arr, j,j-gap);
+                    }
+                }
+            }
+        }
+    }
+
+    public static void shellSort4(int[] arr) {
         for(int gap = 4; gap > 0; gap /= 2) {
             for(int i = gap; i < arr.length; i++) {
                 for(int j = i; j > gap - 1; j -= gap) {
