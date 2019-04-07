@@ -1,6 +1,7 @@
 package com.wwe;
 
 import com.wwe.sort.BubbleSort;
+import com.wwe.sort.ShellSort;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -34,9 +35,10 @@ public class DataCheck {
         System.arraycopy(randomArr, 0, copyArr, 0, randomArr.length);
 
         Arrays.sort(randomArr);
-        BubbleSort.SelectSort.selectSortPositive(copyArr);
+        ShellSort.shellSort(copyArr);
 
-        System.out.println("check -> " + compareArray(randomArr,copyArr));
+        boolean result = compareArray(randomArr,copyArr);
+        System.out.println("check -> " + result);
     }
 
     private static boolean compareArray(int[] a,int[] b) {
@@ -44,6 +46,6 @@ public class DataCheck {
             if(a[i] != b[i])
                 return false;
         }
-        return false;
+        return true;
     }
 }
