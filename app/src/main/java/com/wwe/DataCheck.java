@@ -1,6 +1,6 @@
 package com.wwe;
 
-import com.wwe.select_sort.SelectSort;
+import com.wwe.sort.BubbleSort;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -34,7 +34,7 @@ public class DataCheck {
         System.arraycopy(randomArr, 0, copyArr, 0, randomArr.length);
 
         Arrays.sort(randomArr);
-        SelectSort.selectSortPositive(copyArr);
+        BubbleSort.SelectSort.selectSortPositive(copyArr);
 
         System.out.println("check -> " + compareArray(randomArr,copyArr));
     }

@@ -1,13 +1,15 @@
-package com.wwe.select_sort;
+package com.wwe.sort;
 
 /**
  * @name Arithmetic
- * @class name：com.wwe.select_sort
- * @anthor David
- * @time 2019/3/23 12:58
+ * @class name：com.wwe.sort
  * @class describe
+ * @anthor David
+ * @time 2019/4/7 3:30 PM
+ * @class 选择排序
  */
 public class SelectSort {
+
     public static void main(String[] args) {
         int[] arr = {5,3,6,8,1,7,9,4,2};
         // selectSortPositive(arr);
