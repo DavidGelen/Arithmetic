@@ -15,7 +15,7 @@ public class MyLink {
      * @Author: David
      * @Date: 2019/3/25 11:39 AM
      * @param d
-     * @Description: 向链表中插入数据,往头结点插入数据
+     * @Description: 向链表中插入数据
      */
     public void addNode(int d) {
         Node newNode = new Node(d);
@@ -49,6 +49,7 @@ public class MyLink {
         Node curNode = preNode.next;
         while (curNode != null) {
             if (i == index) {
+                //连起来
                 preNode.next = curNode.next;
                 return true;
             }
@@ -93,20 +94,28 @@ public class MyLink {
         }
     }
 
-    public Node ReverseIteratively(Node head) {
-        Node pReversedHead = head;
-        Node pNode = head;
-        Node pPrev = null;
-        while (pNode != null) {
-            Node pNext = pNode.next;
-            if (pNext == null) {
-                pReversedHead = pNode;
-            }
-            pNode.next = pPrev;
-            pPrev = pNode;
-            pNode = pNext;
+    /**
+     * @Author: David
+     * @Date: 2019/4/15 11:32 PM
+     * @param head
+     * @Description: 链表反转
+     */
+    public void ReverseIteratively(Node head) {
+        if(head == null || head.next == null) {
+            return;
         }
-        this.head = pReversedHead;
-        return this.head;
+        Node p1 = head;
+        Node p2 = head.next;
+        Node p3 = null;
+        while(p2 != null) {
+            p3 = p2.next;
+            p2.next = p1;
+            p1 = p2;
+            p2 = p3;
+        }
+
+        //把head节点的next指向空，成为逆序链表的尾节点。并且把p1赋值给head，让p1所在的节点成为逆序链表的头节点
+        head.next = null;
+        head = p1;
     }
 }
