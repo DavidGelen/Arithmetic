@@ -118,4 +118,75 @@ public class MyLink {
         head.next = null;
         head = p1;
     }
+
+    /**
+     * @Author: David
+     * @Date: 2019/4/17 10:48 PM
+     * @Description: 查找链表中间节点
+     */
+    public Node SearchMid() {
+        Node p = this.head,q = this.head;
+        while (p != null && p.next != null && p.next.next != null) {
+            p = p.next.next;
+            q = q.next;
+        }
+        System.out.println("Mid:" + q.data);
+        return q;
+    }
+
+    /**
+     * @Author: David
+     * @Date: 2019/4/17 10:48 PM
+     * @Description: 链表排序
+     */
+    public void orderList() {
+        Node nextNode = null;
+        int tmp = 0;
+        Node curNode = head;
+        while (curNode.next != null) {
+            nextNode = curNode.next;
+            while (nextNode != null) {
+                if (curNode.data > nextNode.data) {
+                    tmp = curNode.data;
+                    curNode.data = nextNode.data;
+                    nextNode.data = tmp;
+                }
+                nextNode = nextNode.next;
+            }
+            curNode = curNode.next;
+        }
+    }
+
+    /**
+     * @Author: David
+     * @Date: 2019/4/17 10:48 PM
+     * @Description: 删除重复节点
+     */
+    public void deleteDuplecate(Node head) {
+        Node p = head;
+        while (p != null) {
+            Node q = p;
+            while (q.next != null) {
+                if (p.data == q.next.data) {
+                    q.next = q.next.next;
+                } else
+                    q = q.next;
+            }
+            p = p.next;
+        }
+    }
+
+    /**
+     * @Author: David
+     * @Date: 2019/4/17 11:03 PM
+     * @param pListHead\
+     * @Description: 从尾到头输出单链表，采用递归方式实现
+     */
+    public void printListReversely(Node pListHead) {
+        if (pListHead != null) {
+            printListReversely(pListHead.next);
+            System.out.println("printListReversely: " + pListHead.data);
+        }
+    }
+
 }

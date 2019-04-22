@@ -39,7 +39,6 @@ public class ShellSort {
     }
 
     public static void shellSortHalf(int[] arr) {
-
         //arr.length >> 1 等价于 arr.length / 2
         for(int gap = arr.length >> 1; gap > 0; gap /= 2) {
             for(int i = gap; i < arr.length; i++) {
