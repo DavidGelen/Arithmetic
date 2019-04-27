@@ -163,7 +163,7 @@ public class MyLink {
      * @Description: 删除重复节点
      */
     public void deleteDuplecate(Node head) {
-        Node p = head;
+       Node p = head;
         while (p != null) {
             Node q = p;
             while (q.next != null) {
