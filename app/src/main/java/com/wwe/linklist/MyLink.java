@@ -18,15 +18,15 @@ public class MyLink {
      * @Description: 向链表中插入数据
      */
     public void addNode(int d) {
-        Node newNode = new Node(d);
-        if (head == null) {
-            head = newNode;
-            return;
-        }
-        Node temp = head;
-        while (temp.next != null) {
-            temp = temp.next;
-        }
+       Node newNode = new Node(d);
+       if(head == null) {
+           head = newNode;
+           return;
+       }
+       Node temp = head;
+       while (temp.next != null) {
+           temp = temp.next;
+       }
         temp.next = newNode;
     }
 
@@ -37,25 +37,24 @@ public class MyLink {
      * @Description:
      */
     public boolean deleteNode(int index) {
-        if (index < 1 || index > length()) {
+        if(index < 1 || index > length()) {
             return false;
         }
-        if (index == 1) {
+        if(index == 1) {
             head = head.next;
             return true;
         }
-        int i = 1;
         Node preNode = head;
         Node curNode = preNode.next;
+        int count = 1;
         while (curNode != null) {
-            if (i == index) {
-                //连起来
+            if(count == index) {
                 preNode.next = curNode.next;
                 return true;
             }
             preNode = curNode;
             curNode = curNode.next;
-            i++;
+            count++;
         }
         return false;
     }
@@ -79,9 +78,9 @@ public class MyLink {
         if(n == null || n.next == null) {
             return false;
         }
-        int temp = n.data;
+        int data = n.data;
         n.data = n.next.data;
-        n.next.data = temp;
+        n.next.data = data;
         n.next = n.next.next;
         return true;
     }
@@ -104,25 +103,25 @@ public class MyLink {
         if(head == null || head.next == null) {
             return;
         }
+
         Node p1 = head;
         Node p2 = head.next;
         Node p3 = null;
-        while(p2 != null) {
+        while (p2 != null) {
             p3 = p2.next;
             p2.next = p1;
             p1 = p2;
             p2 = p3;
         }
 
-        //把head节点的next指向空，成为逆序链表的尾节点。并且把p1赋值给head，让p1所在的节点成为逆序链表的头节点
-        head.next = null;
         head = p1;
+        head.next = null;
     }
 
     /**
      * @Author: David
      * @Date: 2019/4/17 10:48 PM
-     * @Description: 查找链表中间节点
+     * @Description: 查找链表中间节点，原理快慢指针法
      */
     public Node SearchMid() {
         Node p = this.head,q = this.head;
@@ -163,7 +162,7 @@ public class MyLink {
      * @Description: 删除重复节点
      */
     public void deleteDuplecate(Node head) {
-       Node p = head;
+        Node p = head;
         while (p != null) {
             Node q = p;
             while (q.next != null) {
