@@ -22,18 +22,18 @@ public class MergeSort {
         }
 
         //分成2半，左边排序，右边排序
-        int mid = start + (end - start)/2;
+        int mid = start + (end - start) / 2;
         sort(arr, start, mid);
         sort(arr, mid + 1, end);
-        merge(arr,start,mid+1,end);
+        merge(arr,start,mid + 1,end);
     }
 
-    public static void merge(int[] arr,int leftStart,int rightStart,int end) {
-        int mid = rightStart - 1;
-        int[] temp = new int[end - leftStart + 1];
+    public static void merge(int[] arr,int leftStartBound,int rightStartBound,int end) {
+        int mid = rightStartBound - 1;
+        int[] temp = new int[end - leftStartBound + 1];
 
-        int i = leftStart;
-        int j = rightStart;
+        int i = leftStartBound;
+        int j = rightStartBound;
         int k = 0;
 
         while(i <= mid && j <= end) {
@@ -51,7 +51,7 @@ public class MergeSort {
 
        //temp排好序之后将值复制到arr上
         for(int m = 0; m < temp.length; m++) {
-            arr[leftStart + m] = temp[m];
+            arr[leftStartBound + m] = temp[m];
         }
     }
 

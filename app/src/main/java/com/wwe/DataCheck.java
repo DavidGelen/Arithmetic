@@ -1,6 +1,7 @@
 package com.wwe;
 
 import com.wwe.sort.BubbleSort;
+import com.wwe.sort.MergeSort;
 import com.wwe.sort.ShellSort;
 
 import java.util.Arrays;
@@ -35,7 +36,8 @@ public class DataCheck {
         System.arraycopy(randomArr, 0, copyArr, 0, randomArr.length);
 
         Arrays.sort(randomArr);
-        ShellSort.shellSort(copyArr);
+        //ShellSort.shellSort(copyArr);
+        MergeSort.sort(copyArr, 0, copyArr.length - 1);
 
         boolean result = compareArray(randomArr,copyArr);
         System.out.println("check -> " + result);
