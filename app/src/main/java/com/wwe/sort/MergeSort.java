@@ -11,7 +11,7 @@ package com.wwe.sort;
 public class MergeSort {
 
     public static void main(String[] args) {
-        int[] arr = {1,4,7,8,3,6,9};
+        int[] arr = {1,4,7,8,3,6,9,5,-2,13,38};
         sort(arr,0,arr.length - 1);
         traverse(arr);
     }
