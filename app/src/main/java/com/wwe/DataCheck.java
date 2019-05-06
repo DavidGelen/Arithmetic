@@ -2,6 +2,7 @@ package com.wwe;
 
 import com.wwe.sort.BubbleSort;
 import com.wwe.sort.MergeSort;
+import com.wwe.sort.QuickSort;
 import com.wwe.sort.ShellSort;
 
 import java.util.Arrays;
@@ -37,7 +38,8 @@ public class DataCheck {
 
         Arrays.sort(randomArr);
         //ShellSort.shellSort(copyArr);
-        MergeSort.sort(copyArr, 0, copyArr.length - 1);
+        //MergeSort.sort(copyArr, 0, copyArr.length - 1);
+        QuickSort.sort(copyArr,0,copyArr.length - 1);
 
         boolean result = compareArray(randomArr,copyArr);
         System.out.println("check -> " + result);
